@@ -2,15 +2,15 @@
 class PostsController < ApplicationController
   def index
     @post = Post.all
-   end
+  end
 
   def new
     @post = Post.new
- end
+  end
 
   def edit
     @post = Post.find(params[:id])
- end
+  end
 
   def update
     @post = Post.find(params[:id])
