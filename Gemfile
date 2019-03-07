@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -11,6 +13,7 @@ gem 'pg'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'devise'
+gem 'letter_opener', group: :development
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
