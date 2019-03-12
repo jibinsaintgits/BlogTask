@@ -1,21 +1,29 @@
-<h1>new post</h1>
-
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/posts">Home</a>
+    </div>
 <%= form_with scope: :posts,url: posts_path, local: true do |form| %>
- 
-  <% if @post.errors.any? %>
+<% if @post.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@post.errors.count, "error") %> cant saved:
       </h2>
-      <ul>
+      <ul class="nav navbar-nav">
         <% @post.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
+</div>
+</nav>
 
-
+<div class="container">
+   <div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -25,9 +33,14 @@
     <%= form.label :text %><br>
     <%= form.text_area :text %>
   </p>
- 
   <p>
     <%= form.submit %>
+    <%= link_to 'Back', posts_path ,class:'btn btn-default'%>
   </p>
 <% end %>
-<%= link_to 'Back', posts_path %>
+</div>
+<div class="col-sm-4">
+</div>
+</div>
+</div>
+
