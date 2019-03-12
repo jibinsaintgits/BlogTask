@@ -4,40 +4,36 @@
      <div class="col-sm-4" >
      </div>
      <div class="col-sm-4" >
-
-<%= form_with(model: @post, local: true) do |form| %>
- 
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "error") %> prohibited
+     <%= form_with(model: @post, local: true) do |form| %>
+     <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@post.errors.count, "error") %> prohibited
         this post from being saved:
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- <i><h2>Edit post</h2></i>
+        </h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <i><h2>Edit post</h2></i>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
   </p>
- 
   <p>
     <%= form.label :text %><br>
     <%= form.text_area :text %>
   </p>
- 
   <p>
     <%= form.submit %>
     <%= link_to 'Back', posts_path ,class:'btn btn-success'%>
   </p>
-<% end %>
- </div>
- <div class="col-sm-4" >
- </div>
-</div>
+  <% end %>
+    </div>
+    <div class="col-sm-4" >
+    </div>
+  </div>
 </div>

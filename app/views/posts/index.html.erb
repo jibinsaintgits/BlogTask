@@ -2,27 +2,25 @@
 <!--<p>Find me in app/views/posts/index.html.erb</p>-->
  
 <div class="table-responsive">
- <%= paginate @post %>
+  <%= paginate @post %>
   <% @post.each do |post| %>
-  
-
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-          <div class="card-body">
-            <h2 class="card-title"><%= post.title %></h2>
-            <p class="card-text"><%= post.text %></p>
-           <%= link_to 'Show', post_path(post), class: 'btn btn-primary' %>
-           <%= link_to 'Edit', edit_post_path(post) ,class:'btn btn-primary'%>
-           <%= link_to 'Destroy', post_path(post),
+    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+      <div class="card-body">
+        <h2 class="card-title"><%= post.title %></h2>
+          <p class="card-text"><%= post.text %></p>
+            <%= link_to 'Show', post_path(post), class: 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_post_path(post) ,class:'btn btn-primary'%>
+            <%= link_to 'Destroy', post_path(post),
               method: :delete,
               data: { confirm: 'Are you sure?' } ,class:'btn btn-danger'%>
-          </div>
-          <div class="card-footer text-muted">
-            <%= post.created_at.strftime("at %I:%M%p") %>
-            <%= post.user.try(:email) %>
-            <a href="#">Start Bootstrap</a>
-          </div>
-        
-  <% end %></div><br>
+      </div>
+    <div class="card-footer text-muted">
+      <%= post.created_at.strftime("at %I:%M%p") %>
+      <%= post.user.try(:email) %>
+      <a href="#">Start Bootstrap</a>
+    </div>
+  <% end %>
+</div><br>
 <button class='btn btn-primary'>Read More</button><br><br>
 <%= link_to 'My Blog', controller: 'posts' %>
 <%= link_to 'New ', new_post_path ,class:'btn btn-success'%>
