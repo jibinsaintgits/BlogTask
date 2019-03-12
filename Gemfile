@@ -13,6 +13,7 @@ gem 'pg'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'bootstrap-kaminari-views'
+gem 'carrierwave'
 gem 'devise'
 gem 'letter_opener', group: :development
 gem 'sass-rails', '~> 5.0'
