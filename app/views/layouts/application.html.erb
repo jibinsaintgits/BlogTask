@@ -8,21 +8,44 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-  <p class="navbar-text pull-right">
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+  <div clas="container">
+    <div class="row">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-8">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+         <p class="navbar-text pull-right">
+         <% if user_signed_in? %>
+           Logged in as <strong><a href="https://www.gmail.com"><%= current_user.email %></a></strong>.
+           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' ,class:'btn btn-default'%> |
+           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' ,class:'btn btn-default'%>
+       </div>
+      <div class="col-sm-4">
+      </div>
+     </div>
+   </div>
   <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
+    <nav class="navbar navbar-inverse" >
+      <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+          <form class="navbar-form navbar-left" action="/action_page.php">
+            <div class="form-group">
+              <span class="glyphicon glyphicon-user"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></span> |
+              <span class="glyphicon glyphicon-log-in"><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></span>
+
+          </div>
+          <button type="submit" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"></button>
+           
+          </form>
+         </ul>
+       </div>
+     </nav>
+   <% end %>
   </p>
   <%= yield %>
 </body>

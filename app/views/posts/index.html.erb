@@ -1,28 +1,35 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-<%= link_to 'My Blog', controller: 'posts' %>
 
-<%= link_to 'New ', new_post_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
+<!--<p>Find me in app/views/posts/index.html.erb</p>-->
  
+<div class="table-responsive">
+ <%= paginate @post %>
   <% @post.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.text %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <% if user_signed_in?%>
-        <%if post.user_id == current_user.id%>
-         <td><%= link_to 'Edit', edit_post_path(post) %></td>
-         <td><%= link_to 'Destroy', post_path(post),
+  
+
+          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title"><%= post.title %></h2>
+            <p class="card-text"><%= post.text %></p>
+           <%= link_to 'Show', post_path(post), class: 'btn btn-primary' %>
+           <%= link_to 'Edit', edit_post_path(post) ,class:'btn btn-primary'%>
+           <%= link_to 'Destroy', post_path(post),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+              data: { confirm: 'Are you sure?' } ,class:'btn btn-danger'%>
+          </div>
+          <div class="card-footer text-muted">
+            <%= post.created_at.strftime("at %I:%M%p") %>
+            <%= post.user.try(:email) %>
+            <a href="#">Start Bootstrap</a>
+          </div>
+        
+  <% end %></div><br>
+<button class='btn btn-primary'>Read More</button><br><br>
+<%= link_to 'My Blog', controller: 'posts' %>
+<%= link_to 'New ', new_post_path ,class:'btn btn-success'%>
+
+        <!-- <div class="card-footer text-muted">
+            Posted on January 1, 2017 by
+            <a href="#">Start Bootstrap</a>
+
+
+

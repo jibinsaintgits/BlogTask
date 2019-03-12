@@ -1,7 +1,7 @@
 # Post controller class
 class PostsController < ApplicationController
   def index
-    @post = Post.all
+    @post = Post.all.page(params[:page]).per(1)
   end
 
   def new
@@ -46,6 +46,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:posts).permit(:title, :text)
+    params.require(:post).permit(:title, :text)
   end
 end
